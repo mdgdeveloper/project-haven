@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/main/Header";
+import Footer from "@/components/main/Footer";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const geistSans = localFont({
@@ -35,12 +36,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${rubikSans.variable} ${geistMono.variable} antialiased`}
-      ><>
+      ><div className="flex flex-col min-h-screen">
           <Header />
-          <main className="">
+          <main className="flex-grow min-h-full">
             {children}
           </main>
-        </>
+          <Footer />
+        </div>
       </body>
     </html>
   );
